@@ -1,0 +1,206 @@
+@import "tailwindcss";
+
+@theme {
+  --font-manrope: "Manrope", sans-serif;
+  --font-inter: "Inter", sans-serif;
+  --font-serif: 'Lora', serif;
+  --font-sans: var(--font-inter), sans-serif;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius: 1rem;
+}
+
+@layer base {
+  :root {
+    background-color: #0c0811;
+    color-scheme: dark;
+    transition: background-color 3s ease-in-out;
+    /* Sunset Theme Palette - Glass & Light */
+
+    /* Base: Transparent/Glass */
+    --background: transparent;
+    --foreground: #ffffff;
+    /* White text for contrast against sunset */
+
+    /* Primary: Warm Sun Orange */
+    --primary: #fb8c00;
+    --primary-foreground: #ffffff;
+
+    /* Secondary: Deep Indigo/Purple (for buttons/accents) */
+    --secondary: #4a148c;
+    --secondary-foreground: #ffffff;
+
+    /* Muted: Semi-transparent white for glass cards */
+    --muted: rgba(255, 255, 255, 0.1);
+    --muted-foreground: rgba(255, 255, 255, 0.7);
+
+    /* Accent: Soft Gold */
+    --accent: #ffd700;
+    --accent-foreground: #2d332a;
+
+    /* Destructive */
+    --destructive: #ef5350;
+    --destructive-foreground: #ffffff;
+
+    /* Borders: Subtle white for glass edges */
+    --border: rgba(255, 255, 255, 0.2);
+    --input: rgba(255, 255, 255, 0.15);
+    --ring: rgba(251, 140, 0, 0.5);
+  }
+
+  .sunrise {
+    --foreground: #0f172a;
+    --muted-foreground: #475569;
+    --border: rgba(15, 23, 42, 0.1);
+    --secondary: #1e3a8a;
+    --background: #bae6fd;
+    /* Sky blue fallback instead of white */
+  }
+
+  .logo-filter {
+    filter: url(#remove-white) brightness(0) invert(1);
+    transition: filter 3s ease-in-out;
+  }
+
+  .sunrise .logo-filter {
+    filter: url(#remove-white) brightness(0);
+  }
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+
+  body {
+    background-color: transparent;
+    /* allow fixed background to show */
+    color: var(--foreground);
+    font-family: var(--font-inter);
+    min-height: 100vh;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-manrope);
+    letter-spacing: -0.02em;
+  }
+}
+
+/* Custom Thematic Scrollbar */
+@layer base {
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+}
+
+/* Typography Refinements */
+@layer base {
+
+  h1,
+  h2,
+  h3 {
+    letter-spacing: -0.05em !important;
+  }
+}
+
+/* Dynamic UI Accents & Sunrise Sync */
+.text-accent-dynamic {
+  color: #ffd700;
+  transition: color 3s ease-in-out;
+}
+
+.sunrise .text-accent-dynamic {
+  color: #e67e22;
+  /* Darker sunset orange for better contrast on light sky */
+}
+
+@keyframes glow-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+  }
+
+  70% {
+    box-shadow: 0 0 0 20px rgba(255, 255, 255, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 3s infinite;
+}
+
+.sunrise .animate-glow-pulse {
+  animation: glow-pulse-warm 3s infinite;
+}
+
+@keyframes glow-pulse-warm {
+  0% {
+    box-shadow: 0 0 0 0 rgba(251, 140, 0, 0.4);
+  }
+
+  70% {
+    box-shadow: 0 0 0 20px rgba(251, 140, 0, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(251, 140, 0, 0);
+  }
+}
+
+/* Hide Next.js development indicators */
+#nd-btn,
+.next-dev-overlay,
+[data-nextjs-toast-wrapper],
+#next-dev-indicator,
+[data-nextjs-dev-indicator],
+[data-nextjs-turbo-indicator],
+#__next-build-watcher,
+.next-error-overlay-border,
+nextjs-portal,
+#__vercel-toolbar,
+[data-nextjs-dialog-overlay],
+.nextjs-static-indicator,
+[data-next-hide-on-error] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
