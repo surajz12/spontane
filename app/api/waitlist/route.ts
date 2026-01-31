@@ -57,7 +57,7 @@ export async function POST(req: Request) {
                             <div style="background: #fdf2e9; padding: 25px; border-radius: 12px; margin: 30px 0; border-left: 5px solid #fb8c00;">
                                 <h2 style="margin-top: 0; font-size: 18px;">🚀 Join our Beta Testing Group</h2>
                                 <p>Want to get your hands on the app before anyone else? We're looking for early explorers to test our latest features.</p>
-                                <a href="YOUR_GOOGLE_FORM_LINK_HERE" 
+                                <a href="https://docs.google.com/forms/d/e/1FAIpQLScWB0ntJPux-HMTqKkoR4dOVM5oMk1est8AT8DMHTUo/viewform" 
                                    style="display: inline-block; background: #fb8c00; color: white; padding: 12px 25px; text-decoration: none; border-radius: 30px; font-weight: bold; margin-top: 10px;">
                                    Apply for Beta Access
                                 </a>
