@@ -73,12 +73,18 @@
   }
 
   .logo-filter {
-    filter: url(#remove-white) brightness(0) invert(1);
-    transition: filter 3s ease-in-out;
+    filter: brightness(0) invert(1);
+    opacity: 0.9;
+    transition: filter 3s ease-in-out, opacity 0.3s ease;
+  }
+
+  .logo-filter:hover {
+    opacity: 1;
   }
 
   .sunrise .logo-filter {
-    filter: url(#remove-white) brightness(0);
+    filter: brightness(0);
+    opacity: 0.8;
   }
 }
 

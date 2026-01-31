@@ -39,15 +39,6 @@ export default function RootLayout({
       <body className={cn("min-h-screen bg-background font-inter antialiased", inter.variable, manrope.variable)} suppressHydrationWarning>
         <SunsetProvider>
           <SunsetBackground />
-          <svg className="sr-only">
-            <filter id="remove-white" colorInterpolationFilters="sRGB">
-              <feColorMatrix type="matrix" values="
-                1 0 0 0 0
-                0 1 0 0 0
-                0 0 1 0 0
-                -1 -1 -1 3 0" />
-            </filter>
-          </svg>
           <div className="relative z-10">
             {children}
           </div>

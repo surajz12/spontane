@@ -100,7 +100,7 @@ export function FeedbackForm() {
                     <Button
                         type="submit"
                         disabled={loading}
-                        className="w-full h-16 rounded-full text-xl font-manrope font-semibold bg-foreground text-background hover:bg-foreground/90 transition-all shadow-xl hover:shadow-2xl hover:-translate-y-0.5 duration-500 mt-4"
+                        className="w-full h-16 rounded-full text-xl font-manrope font-semibold bg-primary text-white hover:bg-primary/90 transition-all shadow-xl hover:shadow-2xl hover:-translate-y-0.5 duration-500 mt-4"
                     >
                         {loading ? <Loader2 className="w-6 h-6 animate-spin" /> : "Send Feedback"}
                     </Button>
