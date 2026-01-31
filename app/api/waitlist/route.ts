@@ -28,13 +28,12 @@ export async function POST(req: Request) {
                 }
             ]);
 
-        // If it's a duplicate, we still want to proceed to send the email (in case they lost the first one)
-        // or just return successfully if they are definitely already on the list.
         const isDuplicate = supabaseError?.code === '23505';
 
+        // IF there is a real database error, STOP and tell the user
         if (supabaseError && !isDuplicate) {
             return NextResponse.json(
-                { error: `Database Error: ${supabaseError.message}` },
+                { error: `Supabase Error: ${supabaseError.message} (Code: ${supabaseError.code})` },
                 { status: 500 }
             );
         }
@@ -81,19 +80,24 @@ export async function POST(req: Request) {
                     emailSent = true;
                 }
             } catch (err: any) {
-                emailErrorMsg = err.message;
+                emailErrorMsg = `Resend Exception: ${err.message}`;
             }
         } else {
-            emailErrorMsg = "RESEND_API_KEY is missing in environment variables.";
+            emailErrorMsg = "RESEND_API_KEY is missing.";
         }
 
         return NextResponse.json({
             success: true,
             alreadyExists: isDuplicate,
             emailSent,
-            emailError: emailErrorMsg
+            emailStatus: emailSent ? "Sent" : "Failed",
+            emailError: emailErrorMsg,
+            debug: {
+                url_configured: !!process.env.NEXT_PUBLIC_SUPABASE_URL,
+                db_success: !supabaseError || isDuplicate
+            }
         });
     } catch (error: any) {
-        return NextResponse.json({ error: `Process failed: ${error.message}` }, { status: 500 });
+        return NextResponse.json({ error: `Server Crash: ${error.message}` }, { status: 500 });
     }
 }
