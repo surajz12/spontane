@@ -3,6 +3,7 @@ import { supabase } from "@/lib/supabase";
 import { Resend } from 'resend';
 
 // Initializing Resend with the API Key from environment variables
+// Triggering redeploy for environment variables sync
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: Request) {
