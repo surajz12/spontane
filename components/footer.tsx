@@ -7,7 +7,7 @@ export function Footer() {
             <div className="container mx-auto px-4 md:px-6 flex flex-col md:flex-row items-center justify-between gap-6">
                 <div className="flex flex-col items-center md:items-start gap-4">
                     <div className="flex items-center gap-3">
-                        <img src="/images/logo.png" alt="Spontane Logo" className="h-8 w-auto logo-filter" />
+                        <img src="/images/logo-transparent.png" alt="Spontane Logo" className="h-8 w-auto logo-filter" />
                         <span className="text-xl font-bold tracking-tight font-manrope text-foreground">Spontane</span>
                     </div>
                     <p className="text-sm text-foreground opacity-50 font-inter">

@@ -18,6 +18,15 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   title: "Spontane - Join the Waitlist",
   description: "The spontaneous way to connect. Join the waitlist for early access.",
+  icons: {
+    icon: [
+      { url: "/images/logo-transparent.png" },
+      { url: "/images/logo-transparent.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: [
+      { url: "/images/logo-transparent.png" },
+    ],
+  },
 };
 
 export default function RootLayout({
