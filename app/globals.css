@@ -69,9 +69,12 @@
     --border: rgba(15, 23, 42, 0.1);
     --secondary: #1e3a8a;
     --background: #bae6fd;
-    /* Sky blue fallback instead of white */
   }
 
+  .logo-filter {
+    filter: url(#clean-logo-filter);
+    transition: opacity 0.3s ease;
+  }
 }
 
 @layer base {
