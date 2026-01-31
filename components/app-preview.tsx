@@ -24,7 +24,7 @@ const FEATURES = [
     },
     {
         title: "Smart Expenses",
-        description: "Stay on budget with visual breakdowns. Know exactly where your money goes—from food to flights—at a glance.",
+        description: "Stay on budget with localized tracking and real-time exchange rates. Know exactly where your money goes—from food to flights—at a glance.",
         image: "/images/screenshots/screen-1.jpg",
         color: "from-orange-400 to-rose-400"
     },
