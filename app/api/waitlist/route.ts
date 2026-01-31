@@ -25,8 +25,12 @@ export async function POST(req: Request) {
             ]);
 
         if (error) {
+            // Check for duplicate key error (Postgres code 23505)
+            if (error.code === '23505') {
+                return NextResponse.json({ success: true, message: "You're already on the list!" });
+            }
             return NextResponse.json(
-                { error: `Database Error: ${error.message}. (Table 'waitlist' might not exist in Supabase)` },
+                { error: `Database Error: ${error.message}` },
                 { status: 500 }
             );
         }
