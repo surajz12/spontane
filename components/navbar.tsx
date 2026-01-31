@@ -18,7 +18,7 @@ export function Navbar() {
 
             <div className="container mx-auto px-6 flex items-center justify-between relative z-10 pointer-events-auto">
                 <div className="flex items-center gap-3">
-                    <img src="/images/logo-transparent.png" alt="Spontane Logo" className="h-10 md:h-12 w-auto logo-filter" />
+                    <img src="/images/logo-transparent.png" alt="Spontane Logo" className="h-12 md:h-14 w-auto logo-filter transition-opacity duration-300" />
                     <span className="text-xl md:text-2xl font-bold tracking-tight font-manrope text-foreground drop-shadow-md">Spontane</span>
                 </div>
 

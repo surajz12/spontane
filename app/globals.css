@@ -73,13 +73,11 @@
   }
 
   .logo-filter {
-    /* Set to pure white */
     filter: brightness(0) invert(1);
     transition: filter 3s ease-in-out;
   }
 
   .sunrise .logo-filter {
-    /* Set to pure black or original */
     filter: brightness(0);
   }
 }
