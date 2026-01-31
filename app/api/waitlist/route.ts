@@ -40,11 +40,13 @@ export async function POST(req: Request) {
         }
 
         // 2. Send the Welcome Email via Resend
-        // We only send if an API key is present to avoid crashing in dev/prod if not configured yet
+        let emailSent = false;
+        let emailErrorMsg = null;
+
         if (process.env.RESEND_API_KEY) {
             try {
-                await resend.emails.send({
-                    from: 'Spontane <onboarding@resend.dev>', // Resend provides this default for testing
+                const { data: emailData, error: resendError } = await resend.emails.send({
+                    from: 'Spontane <onboarding@resend.dev>',
                     to: data.email,
                     subject: 'Welcome to Spontane - Your Journey Begins!',
                     html: `
@@ -72,13 +74,25 @@ export async function POST(req: Request) {
                         </div>
                     `
                 });
-            } catch (emailError) {
-                console.error("Failed to send email:", emailError);
-                // We don't return error to user because they are already saved in DB
+
+                if (resendError) {
+                    emailErrorMsg = resendError.message;
+                } else {
+                    emailSent = true;
+                }
+            } catch (err: any) {
+                emailErrorMsg = err.message;
             }
+        } else {
+            emailErrorMsg = "RESEND_API_KEY is missing in environment variables.";
         }
 
-        return NextResponse.json({ success: true, alreadyExists: isDuplicate });
+        return NextResponse.json({
+            success: true,
+            alreadyExists: isDuplicate,
+            emailSent,
+            emailError: emailErrorMsg
+        });
     } catch (error: any) {
         return NextResponse.json({ error: `Process failed: ${error.message}` }, { status: 500 });
     }
