@@ -74,6 +74,8 @@
   .logo-filter {
     filter: url(#clean-logo-filter);
     transition: opacity 0.3s ease;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
   }
 }
 

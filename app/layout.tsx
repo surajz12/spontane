@@ -41,12 +41,15 @@ export default function RootLayout({
           <SunsetBackground />
           <svg className="sr-only">
             <filter id="clean-logo-filter" colorInterpolationFilters="sRGB">
-              {/* This filter turns the logo pure white and keys out anything that is white or light gray (like a checkerboard) */}
+              {/* Sharpened chroma key: tighter threshold to remove all gray artifacts and bump pure white */}
               <feColorMatrix type="matrix" values="
                 0 0 0 0 1
                 0 0 0 0 1
                 0 0 0 0 1
-                -1 -1 -1 2.5 0" />
+                -1.5 -1.5 -1.5 3.5 -0.1" />
+              <feComponentTransfer>
+                <feFuncA type="discrete" tableValues="0 1" />
+              </feComponentTransfer>
             </filter>
           </svg>
           <div className="relative z-10">
