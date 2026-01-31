@@ -73,12 +73,8 @@
   }
 
   .logo-filter {
-    filter: brightness(0) invert(1);
-    transition: filter 3s ease-in-out;
-  }
-
-  .sunrise .logo-filter {
-    filter: brightness(0);
+    /* Filters removed to prevent 'patch' artifacts. Ensuring the logo is bg-less. */
+    transition: opacity 0.3s ease;
   }
 }
 
