@@ -45,45 +45,70 @@ export async function POST(req: Request) {
 
         if (process.env.RESEND_API_KEY) {
             try {
+                console.log("Attempting to send email to:", data.email);
                 const { data: emailData, error: resendError } = await resend.emails.send({
-                    from: 'Spontane <onboarding@resend.dev>',
+                    from: 'Spontane <hello@spontane.quest>',
                     to: data.email,
-                    subject: 'Welcome to Spontane - Your Journey Begins!',
+                    subject: 'Welcome to the Spontane Waitlist! 🌅',
+                    replyTo: 'hello@spontane.quest',
                     html: `
-                        <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; color: #333;">
-                            <h1 style="color: #fb8c00;">Welcome to the Journey, ${data.name || 'Explorer'}!</h1>
-                            <p style="font-size: 16px; line-height: 1.6;">
-                                We're thrilled to have you on the Spontane waitlist. We're building the future of spontaneous travel, 
-                                and we want your help to get it right.
+                        <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 600px; margin: 0 auto; padding: 40px 20px; color: #1a1a1a; background-color: #ffffff;">
+                            <div style="text-align: center; margin-bottom: 30px;">
+                                <h1 style="color: #fb8c00; font-size: 28px; font-weight: 700; margin: 0; letter-spacing: -0.5px;">SPONTANE</h1>
+                                <p style="color: #666; font-size: 14px; margin-top: 5px;">The future of spontaneous travel</p>
+                            </div>
+                            
+                            <h2 style="font-size: 22px; color: #333; margin-bottom: 20px;">Welcome to the journey, ${data.name || 'Explorer'}!</h2>
+                            
+                            <p style="font-size: 16px; line-height: 1.6; color: #444;">
+                                We're thrilled to have you on the waitlist. We're building Spontane for those who find magic in the unplanned—and we'd love for you to be part of the early group that brings it to life.
                             </p>
-                            <div style="background: #fdf2e9; padding: 25px; border-radius: 12px; margin: 30px 0; border-left: 5px solid #fb8c00;">
-                                <h2 style="margin-top: 0; font-size: 18px;">🚀 Join our Beta Testing Group</h2>
-                                <p>Want to get your hands on the app before anyone else? We're looking for early explorers to test our latest features.</p>
+
+                            <div style="background: linear-gradient(135deg, #fff3e0 0%, #fdf2e9 100%); padding: 30px; border-radius: 16px; margin: 35px 0; border: 1px solid #ffe0b2; text-align: center;">
+                                <h3 style="margin-top: 0; font-size: 18px; color: #e65100;">🚀 Early Beta Access</h3>
+                                <p style="font-size: 15px; color: #5d4037;">Want to test the app before the official launch? Fill out our quick Beta interest form below.</p>
                                 <a href="https://docs.google.com/forms/d/e/1FAIpQLScWB0ntJPux-HMTqKkoR4dOVM5oMk1est8AT8DMHTUo/viewform" 
-                                   style="display: inline-block; background: #fb8c00; color: white; padding: 12px 25px; text-decoration: none; border-radius: 30px; font-weight: bold; margin-top: 10px;">
+                                   style="display: inline-block; background: #fb8c00; color: white; padding: 14px 32px; text-decoration: none; border-radius: 50px; font-weight: 600; margin-top: 15px; box-shadow: 0 4px 12px rgba(251, 140, 0, 0.2);">
                                    Apply for Beta Access
                                 </a>
                             </div>
-                            <p style="font-size: 14px; color: #666;">
-                                Watch your inbox for the sunrise. We'll be in touch soon with more updates!
+
+                            <p style="font-size: 16px; line-height: 1.6; color: #444;">
+                                We'll be in touch as soon as a spot opens up. In the meantime, stay spontaneous!
                             </p>
-                            <hr style="border: 0; border-top: 1px solid #eee; margin: 30px 0;" />
-                            <p style="font-size: 12px; color: #999; text-align: center;">
-                                © ${new Date().getFullYear()} Spontane Inc.
+
+                            <p style="margin-top: 40px; font-size: 16px; font-weight: 600; color: #333;">
+                                Cheers,<br/>
+                                <span style="color: #fb8c00;">Team Spontane</span>
                             </p>
+                            
+                            <hr style="border: 0; border-top: 1px dashed #eee; margin: 40px 0;" />
+                            
+                            <div style="text-align: center;">
+                                <p style="font-size: 12px; color: #999;">
+                                    You're receiving this because you signed up at <a href="https://spontane.quest" style="color: #fb8c00; text-decoration: none;">spontane.quest</a>
+                                </p>
+                                <p style="font-size: 12px; color: #999; margin-top: 10px;">
+                                    © ${new Date().getFullYear()} Spontane. All rights reserved.
+                                </p>
+                            </div>
                         </div>
                     `
                 });
 
                 if (resendError) {
+                    console.error("Resend Error:", resendError);
                     emailErrorMsg = resendError.message;
                 } else {
+                    console.log("Resend Success:", emailData);
                     emailSent = true;
                 }
             } catch (err: any) {
+                console.error("Resend Exception:", err);
                 emailErrorMsg = `Resend Exception: ${err.message}`;
             }
         } else {
+            console.error("Missing RESEND_API_KEY in process.env");
             emailErrorMsg = "RESEND_API_KEY is missing.";
         }
 
