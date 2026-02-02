@@ -40,16 +40,15 @@ export default function RootLayout({
         <SunsetProvider>
           <SunsetBackground />
           <svg className="sr-only">
-            <filter id="remove-white" colorInterpolationFilters="sRGB">
-              {/* This filter takes the average of RGB and subtracts it from Alpha, effectively making white transparent */}
-              <feColorMatrix type="matrix" values="
-                1 0 0 0 0
-                0 1 0 0 0
-                0 0 1 0 0
-                -1.1 -1.1 -1.1 1 3" />
+            <filter id="remove-background" colorInterpolationFilters="sRGB">
+              {/* Convert colors to luminance and put it in the alpha channel */}
+              <feColorMatrix type="luminanceToAlpha" />
+              {/* Invert the alpha so white (1) becomes transparent (0) and black (0) becomes opaque (1) */}
               <feComponentTransfer>
-                <feFuncA type="linear" slope="1.5" intercept="-0.2" />
+                <feFuncA type="table" tableValues="1 0" />
               </feComponentTransfer>
+              {/* Apply this new alpha mask back to the original colors */}
+              <feComposite in="SourceGraphic" operator="in" />
             </filter>
           </svg>
           <div className="relative z-10">

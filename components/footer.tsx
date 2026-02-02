@@ -10,10 +10,10 @@ export function Footer() {
                         <img
                             src="/images/logo.png"
                             alt="Spontane Logo"
-                            className="h-10 w-auto opacity-50 contrast-125"
+                            className="h-10 w-auto opacity-70 contrast-150"
                             style={{
                                 imageRendering: 'crisp-edges',
-                                filter: 'url(#remove-white) brightness(0) invert(1)'
+                                filter: 'url(#remove-background) brightness(0) invert(1)'
                             } as any}
                         />
                         <span className="text-xl font-bold tracking-tight font-manrope text-foreground">Spontane</span>

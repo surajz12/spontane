@@ -24,7 +24,7 @@ export function Navbar() {
                         className="h-10 md:h-12 w-auto object-contain"
                         style={{
                             imageRendering: 'crisp-edges',
-                            filter: 'url(#remove-white)'
+                            filter: 'url(#remove-background)'
                         } as any}
                     />
                     <span className="text-xl md:text-2xl font-bold tracking-tight font-manrope text-foreground drop-shadow-md">Spontane</span>
