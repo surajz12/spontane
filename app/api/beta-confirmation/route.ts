@@ -13,6 +13,7 @@ export async function POST(req: Request) {
         }
 
         // Send the Beta Confirmation Email
+        console.log("Processing beta confirmation for:", email);
         const { data: emailData, error: resendError } = await resend.emails.send({
             from: 'Spontane <hello@spontane.quest>',
             to: email,
@@ -61,11 +62,14 @@ export async function POST(req: Request) {
         });
 
         if (resendError) {
+            console.error("Resend Beta Error:", resendError);
             return NextResponse.json({ error: resendError.message }, { status: 500 });
         }
 
+        console.log("Resend Beta Success:", emailData);
         return NextResponse.json({ success: true, message: "Beta confirmation email sent." });
     } catch (error: any) {
+        console.error("Beta Server Error:", error);
         return NextResponse.json({ error: error.message }, { status: 500 });
     }
 }
