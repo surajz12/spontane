@@ -24,7 +24,7 @@ export function Hero() {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 1.5, delay: 0.5 }}
-                        className="mt-8 text-xl md:text-2xl font-serif italic text-foreground opacity-90 max-w-2xl mx-auto leading-relaxed"
+                        className="mt-8 text-xl md:text-2xl font-playfair italic text-foreground opacity-90 max-w-2xl mx-auto leading-relaxed"
                     >
                         Relive the feeling, not just the view. <br />
                         <span className="text-base opacity-70 mt-2 block">Join the movement for mindful travel.</span>
