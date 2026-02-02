@@ -17,16 +17,19 @@ export async function POST(req: Request) {
         let subject = "You're In! Welcome to the Spontane Beta 🚀";
         let htmlContent = "";
 
-        // Check if user said NO (strictly "no" or "false")
-        // We use strict matching because the Google Form only has "Yes" and "No" options.
-        // This avoids bugs where String(null) -> "null" starts with "n" and triggered the No path.
-        const interestStr = String(betaInterest).toLowerCase().trim();
-        const isExplicitNo = interestStr === 'no' || interestStr === 'false' || betaInterest === false;
+        // Normalize the beta interest input
+        const interestInput = String(betaInterest).toLowerCase().trim();
+
+        // Check for explicit "no" values
+        // Matches "no", "false", "n", or "0"
+        const isExplicitNo = /^(no|false|n|0)$/.test(interestInput);
+
+        // Default to YES unless explicitly NO
         const isBetaUser = !isExplicitNo;
 
         if (isBetaUser) {
-            // BETA CONFIRMATION EMAIL
-            subject = "You're In! Welcome to the Spontane Beta 🚀";
+            // BETA CONFIRMATION EMAIL (YES)
+            subject = "You're In! Welcome to the Spontane Beta";
             htmlContent = `
                 <div style="font-family: sans-serif; font-size: 16px; color: #333; line-height: 1.6;">
                     <p>Hi ${name || 'Explorer'},</p>
@@ -52,7 +55,7 @@ export async function POST(req: Request) {
             `;
         } else {
             // SURVEY ONLY / NO BETA EMAIL
-            subject = "Thanks for your feedback! 📝";
+            subject = "Thanks for your feedback!";
             htmlContent = `
                 <div style="font-family: sans-serif; font-size: 16px; color: #333; line-height: 1.6;">
                     <p>Hi ${name || 'Explorer'},</p>
