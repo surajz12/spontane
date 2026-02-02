@@ -65,7 +65,7 @@ export async function POST(req: Request) {
                             </p>
 
                             <div style="background: linear-gradient(135deg, #fff3e0 0%, #fdf2e9 100%); padding: 30px; border-radius: 16px; margin: 35px 0; border: 1px solid #ffe0b2; text-align: center;">
-                                <h3 style="margin-top: 0; font-size: 18px; color: #e65100;">📝 Quick Survey</h3>
+                                <h3 style="margin-top: 0; font-size: 18px; color: #e65100;">📝 Quick Survey & Beta Testing</h3>
                                 <p style="font-size: 15px; color: #5d4037;">Help us build the perfect travel app. It only takes 2 minutes to share your thoughts.</p>
                                 <a href="https://docs.google.com/forms/d/e/1FAIpQLSfVm3UqZkYDG9EEgGQhBUa5dgCa3LwERQDQ14A6rxzTI4yXZg/viewform" 
                                    style="display: inline-block; background: #fb8c00; color: white; padding: 14px 32px; text-decoration: none; border-radius: 50px; font-weight: 600; margin-top: 15px; box-shadow: 0 4px 12px rgba(251, 140, 0, 0.2);">
