@@ -17,6 +17,12 @@ export function Footer() {
 
                 <div className="flex items-center gap-6">
                     <Link
+                        href="/terms"
+                        className="text-sm text-foreground opacity-50 hover:opacity-100 transition-opacity font-inter"
+                    >
+                        Terms of Service
+                    </Link>
+                    <Link
                         href="/privacy"
                         className="text-sm text-foreground opacity-50 hover:opacity-100 transition-opacity font-inter"
                     >
