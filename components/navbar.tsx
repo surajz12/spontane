@@ -17,17 +17,20 @@ export function Navbar() {
             <div className="absolute inset-0 bg-black/5 backdrop-blur-sm opacity-0" style={{ opacity: opacity as any }} />
 
             <div className="container mx-auto px-6 flex items-center justify-between relative z-10 pointer-events-auto">
-                <div className="flex items-center gap-3">
+                <div
+                    className="flex items-center gap-3 cursor-pointer group"
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                >
                     <img
                         src="/images/logo.png"
                         alt="Spontane Logo"
-                        className="h-10 md:h-12 w-auto object-contain"
+                        className="h-10 md:h-12 w-auto object-contain transition-transform group-hover:scale-105 duration-300"
                         style={{
                             imageRendering: 'crisp-edges',
                             filter: 'url(#remove-background)'
                         } as any}
                     />
-                    <span className="text-xl md:text-2xl font-bold tracking-tight font-manrope text-foreground drop-shadow-md">Spontane</span>
+                    <span className="text-xl md:text-2xl font-bold tracking-tight font-manrope text-foreground drop-shadow-md italic group-hover:opacity-80 transition-opacity">spontane</span>
                 </div>
 
                 <Button
