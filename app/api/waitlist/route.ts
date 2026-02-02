@@ -55,26 +55,26 @@ export async function POST(req: Request) {
                         <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 600px; margin: 0 auto; padding: 40px 20px; color: #1a1a1a; background-color: #ffffff;">
                             <div style="text-align: center; margin-bottom: 30px;">
                                 <h1 style="color: #fb8c00; font-size: 28px; font-weight: 700; margin: 0; letter-spacing: -0.5px;">SPONTANE</h1>
-                                <p style="color: #666; font-size: 14px; margin-top: 5px;">The future of spontaneous travel</p>
+                                <p style="color: #666; font-size: 14px; margin-top: 5px;">The future of travel</p>
                             </div>
                             
                             <h2 style="font-size: 22px; color: #333; margin-bottom: 20px;">Welcome to the journey, ${data.name || 'Explorer'}!</h2>
                             
                             <p style="font-size: 16px; line-height: 1.6; color: #444;">
-                                We're thrilled to have you on the waitlist. We're building Spontane for those who find magic in the unplanned—and we'd love for you to be part of the early group that brings it to life.
+                                We're thrilled to have you on the waitlist. We're building Spontane for those who find magic in traveling, and we'd love for you to be part of the early group that brings it to life.
                             </p>
 
                             <div style="background: linear-gradient(135deg, #fff3e0 0%, #fdf2e9 100%); padding: 30px; border-radius: 16px; margin: 35px 0; border: 1px solid #ffe0b2; text-align: center;">
-                                <h3 style="margin-top: 0; font-size: 18px; color: #e65100;">🚀 Early Beta Access</h3>
-                                <p style="font-size: 15px; color: #5d4037;">Want to test the app before the official launch? Fill out our quick Beta interest form below.</p>
+                                <h3 style="margin-top: 0; font-size: 18px; color: #e65100;">📝 Quick Survey</h3>
+                                <p style="font-size: 15px; color: #5d4037;">Help us build the perfect travel app. It only takes 2 minutes to share your thoughts.</p>
                                 <a href="https://docs.google.com/forms/d/e/1FAIpQLSfVm3UqZkYDG9EEgGQhBUa5dgCa3LwERQDQ14A6rxzTI4yXZg/viewform" 
                                    style="display: inline-block; background: #fb8c00; color: white; padding: 14px 32px; text-decoration: none; border-radius: 50px; font-weight: 600; margin-top: 15px; box-shadow: 0 4px 12px rgba(251, 140, 0, 0.2);">
-                                   Apply for Beta Access
+                                   Take Quick Survey
                                 </a>
                             </div>
 
                             <p style="font-size: 16px; line-height: 1.6; color: #444;">
-                                We'll be in touch as soon as a spot opens up. In the meantime, stay spontaneous!
+                                We'll be in touch as soon as a spot opens up. In the meantime, happy travels!
                             </p>
 
                             <p style="margin-top: 40px; font-size: 16px; font-weight: 600; color: #333;">
