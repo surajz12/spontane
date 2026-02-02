@@ -77,7 +77,7 @@ export async function POST(req: Request) {
                             </p>
                             
                             <div style="margin-top: 30px; border-top: 1px solid #eee; padding-top: 10px; font-size: 12px; color: #aaa;">
-                                <p>You signed up for the waitlist at spontane.quest.</p>
+                                <p>You signed up for the waitlist at spontane.quest. Need help? Contact us at <a href="mailto:hello@spontane.quest" style="color: #aaa; text-decoration: underline;">hello@spontane.quest</a></p>
                             </div>
                         </div>
                     `

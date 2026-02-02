@@ -17,9 +17,9 @@ export async function POST(req: Request) {
         let subject = "You're In! Welcome to the Spontane Beta 🚀";
         let htmlContent = "";
 
-        // Check if user said NO to beta testing (or didn't explicitly say yes if that's your logic, assuming boolean or string check)
-        // Adjust logic based on how your Google Script sends the data. I will assume it sends a boolean or string 'yes'/'no'.
-        const isBetaUser = String(betaInterest).toLowerCase().includes('yes') || betaInterest === true;
+        // Check if user said YES (starts with 'y' or is boolean true)
+        const interestStr = String(betaInterest).toLowerCase().trim();
+        const isBetaUser = interestStr.startsWith('y') || interestStr === 'true' || betaInterest === true;
 
         if (isBetaUser) {
             // BETA CONFIRMATION EMAIL
@@ -45,6 +45,10 @@ export async function POST(req: Request) {
                         <strong>Team Spontane</strong><br/>
                         <a href="https://spontane.quest" style="color: #888; text-decoration: none; font-size: 14px;">spontane.quest</a>
                     </p>
+                    
+                     <div style="margin-top: 30px; border-top: 1px solid #eee; padding-top: 10px; font-size: 12px; color: #aaa;">
+                        <p>Need help? Contact us at <a href="mailto:hello@spontane.quest" style="color: #aaa; text-decoration: underline;">hello@spontane.quest</a></p>
+                    </div>
                 </div>
             `;
         } else {
@@ -64,6 +68,10 @@ export async function POST(req: Request) {
                         <strong>Team Spontane</strong><br/>
                         <a href="https://spontane.quest" style="color: #888; text-decoration: none; font-size: 14px;">spontane.quest</a>
                     </p>
+                    
+                     <div style="margin-top: 30px; border-top: 1px solid #eee; padding-top: 10px; font-size: 12px; color: #aaa;">
+                        <p>Need help? Contact us at <a href="mailto:hello@spontane.quest" style="color: #aaa; text-decoration: underline;">hello@spontane.quest</a></p>
+                    </div>
                 </div>
             `;
         }
