@@ -12,13 +12,32 @@ export async function POST(req: Request) {
             return NextResponse.json({ error: "Email is required" }, { status: 400 });
         }
 
-        console.log(`Processing confirmation for: ${email}, Interest: ${betaInterest}`);
+        console.log("Received payload:", JSON.stringify(data, null, 2));
+
+        // Smartly find the beta interest value
+        // It might be in 'betaInterest', 'beta', or the raw question title from Google Forms
+        let interestValue: any = data.betaInterest || data.beta;
+
+        // If not found in standard keys, search for a key containing "beta testing" (case insensitive)
+        // This handles cases where people send the raw Google Form namedValues
+        if (interestValue === undefined) {
+            const betaKey = Object.keys(data).find(k => k.toLowerCase().includes('beta testing'));
+            if (betaKey) {
+                interestValue = data[betaKey];
+                // Google Forms namedValues entries are often arrays [ "Answer" ]
+                if (Array.isArray(interestValue)) {
+                    interestValue = interestValue[0];
+                }
+            }
+        }
+
+        console.log(`Processing confirmation for: ${email}, Raw Interest Value: ${interestValue}`);
 
         let subject = "You're In! Welcome to the Spontane Beta 🚀";
         let htmlContent = "";
 
         // Normalize the beta interest input
-        const interestInput = String(betaInterest).toLowerCase().trim();
+        const interestInput = String(interestValue).toLowerCase().trim();
 
         // Check for explicit "no" values
         // Matches "no", "false", "n", or "0"
