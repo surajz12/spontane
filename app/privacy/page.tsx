@@ -46,7 +46,7 @@ export default function PrivacyPolicy() {
                 <section className="space-y-4">
                     <h2 className="text-2xl font-semibold text-white">5. Contact Us</h2>
                     <p>
-                        If you have any questions about this Privacy Policy, please contact us via our official channels or via Instagram @spontane.app.
+                        If you have any questions about this Privacy Policy, please contact us at <a href="mailto:support@spontane.quest" className="text-accent hover:underline">support@spontane.quest</a>.
                     </p>
                 </section>
 
