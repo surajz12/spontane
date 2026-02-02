@@ -67,7 +67,7 @@ export async function POST(req: Request) {
                             <div style="background: linear-gradient(135deg, #fff3e0 0%, #fdf2e9 100%); padding: 30px; border-radius: 16px; margin: 35px 0; border: 1px solid #ffe0b2; text-align: center;">
                                 <h3 style="margin-top: 0; font-size: 18px; color: #e65100;">🚀 Early Beta Access</h3>
                                 <p style="font-size: 15px; color: #5d4037;">Want to test the app before the official launch? Fill out our quick Beta interest form below.</p>
-                                <a href="https://docs.google.com/forms/d/e/1FAIpQLScWB0ntJPux-HMTqKkoR4dOVM5oMk1est8AT8DMHTUo/viewform" 
+                                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfVm3UqZkYDG9EEgGQhBUa5dgCa3LwERQDQ14A6rxzTI4yXZg/viewform" 
                                    style="display: inline-block; background: #fb8c00; color: white; padding: 14px 32px; text-decoration: none; border-radius: 50px; font-weight: 600; margin-top: 15px; box-shadow: 0 4px 12px rgba(251, 140, 0, 0.2);">
                                    Apply for Beta Access
                                 </a>
