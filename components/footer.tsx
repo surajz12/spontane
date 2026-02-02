@@ -8,10 +8,13 @@ export function Footer() {
                 <div className="flex flex-col items-center md:items-start gap-4">
                     <div className="flex items-center gap-3">
                         <img
-                            src="/images/logo-transparent.png"
+                            src="/images/logo.png"
                             alt="Spontane Logo"
-                            className="h-10 w-auto brightness-0 invert opacity-50"
-                            style={{ imageRendering: 'crisp-edges' } as any}
+                            className="h-10 w-auto opacity-50 contrast-125"
+                            style={{
+                                imageRendering: 'crisp-edges',
+                                filter: 'url(#remove-white) brightness(0) invert(1)'
+                            } as any}
                         />
                         <span className="text-xl font-bold tracking-tight font-manrope text-foreground">Spontane</span>
                     </div>

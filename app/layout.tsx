@@ -39,6 +39,19 @@ export default function RootLayout({
       <body className={cn("min-h-screen bg-background font-inter antialiased", inter.variable, manrope.variable)} suppressHydrationWarning>
         <SunsetProvider>
           <SunsetBackground />
+          <svg className="sr-only">
+            <filter id="remove-white" colorInterpolationFilters="sRGB">
+              {/* This filter takes the average of RGB and subtracts it from Alpha, effectively making white transparent */}
+              <feColorMatrix type="matrix" values="
+                1 0 0 0 0
+                0 1 0 0 0
+                0 0 1 0 0
+                -1.1 -1.1 -1.1 1 3" />
+              <feComponentTransfer>
+                <feFuncA type="linear" slope="1.5" intercept="-0.2" />
+              </feComponentTransfer>
+            </filter>
+          </svg>
           <div className="relative z-10">
             {children}
           </div>

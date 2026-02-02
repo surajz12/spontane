@@ -80,7 +80,7 @@ export function FeedbackForm() {
                         required
                         name="feedback"
                         placeholder="Share your thoughts, feelings, or ideas..."
-                        className="min-h-[150px] bg-white/5 border-white/10 focus-visible:ring-1 focus-visible:ring-white/50 rounded-2xl text-lg p-6 font-inter text-foreground placeholder:text-foreground/40 backdrop-blur-sm"
+                        className="min-h-[150px] bg-white/5 border-white/10 focus-visible:ring-1 focus-visible:ring-white/50 rounded-2xl text-lg p-6 font-inter text-foreground placeholder:text-foreground/40 backdrop-blur-sm resize-none"
                     />
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

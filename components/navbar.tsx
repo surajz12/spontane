@@ -19,10 +19,13 @@ export function Navbar() {
             <div className="container mx-auto px-6 flex items-center justify-between relative z-10 pointer-events-auto">
                 <div className="flex items-center gap-3">
                     <img
-                        src="/images/logo-transparent.png"
+                        src="/images/logo.png"
                         alt="Spontane Logo"
                         className="h-10 md:h-12 w-auto object-contain"
-                        style={{ imageRendering: 'crisp-edges' } as any}
+                        style={{
+                            imageRendering: 'crisp-edges',
+                            filter: 'url(#remove-white)'
+                        } as any}
                     />
                     <span className="text-xl md:text-2xl font-bold tracking-tight font-manrope text-foreground drop-shadow-md">Spontane</span>
                 </div>
