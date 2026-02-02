@@ -118,13 +118,13 @@ export function AppPreview() {
                     </div>
 
                     {/* Right Column: Sticky Presentation Area */}
-                    <div className="hidden md:block w-1/2 sticky top-0 h-screen flex items-center justify-center p-6 lg:p-12">
+                    <div className="hidden md:block w-full md:w-3/5 sticky top-0 h-screen flex items-center justify-center p-4 lg:p-8">
                         <motion.div
-                            className="relative w-full aspect-[4/3] max-w-2xl bg-white/10 rounded-3xl border border-white/20 shadow-2xl overflow-hidden backdrop-blur-xl flex flex-col cursor-none group"
+                            className="relative w-full aspect-[16/10] max-w-5xl bg-white/10 rounded-3xl border border-white/20 shadow-2xl overflow-hidden backdrop-blur-xl flex flex-col group transform-gpu"
                             initial={{ y: 20, opacity: 0 }}
                             animate={{ y: 0, opacity: 1 }}
                             transition={{ duration: 0.8 }}
-                            whileHover={{ scale: 1.02 }}
+                            whileHover={{ scale: 1.01 }}
                             onMouseMove={(e) => {
                                 const rect = e.currentTarget.getBoundingClientRect();
                                 const x = (e.clientX - rect.left) / rect.width - 0.5;

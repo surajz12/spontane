@@ -13,10 +13,10 @@ export function SunsetBackground() {
     const skyY = useTransform(scrollY, [0, 1000], [0, 20], { clamp: true });
 
     return (
-        <div className="fixed inset-0 -z-50 overflow-hidden pointer-events-none">
+        <div className="fixed inset-0 -z-50 overflow-hidden pointer-events-none transform-gpu">
             {/* Sky Gradient Layer */}
             <motion.div
-                className="absolute -inset-[10%] w-[120%] h-[120%]"
+                className="absolute -inset-[10%] w-[120%] h-[120%] will-change-[transform,background]"
                 style={{ y: skyY }}
                 initial={{ background: "linear-gradient(to bottom, #240b36 0%, #c31432 40%, #512b58 100%)" }} // Deep Sunset
                 animate={{
@@ -29,7 +29,7 @@ export function SunsetBackground() {
 
             {/* Sun */}
             <motion.div
-                className="absolute left-1/2 -translate-x-1/2 rounded-full blur-2xl"
+                className="absolute left-1/2 -translate-x-1/2 rounded-full blur-xl will-change-[transform,bottom,width,height,background-color]"
                 style={{ y: sunY }}
                 initial={{ bottom: "5%", width: "clamp(200px, 25vw, 400px)", height: "clamp(200px, 25vw, 400px)", backgroundColor: "#ff7e5f", opacity: 0.8 }}
                 animate={{
@@ -39,15 +39,15 @@ export function SunsetBackground() {
                     backgroundColor: isSunrise ? "#fdbb2d" : "#ff512f",
                     opacity: isSunrise ? 1 : 0.9,
                     boxShadow: isSunrise
-                        ? "0 0 80px 20px rgba(253, 187, 45, 0.6)"
-                        : "0 0 100px 30px rgba(255, 81, 47, 0.5)"
+                        ? "0 0 60px 15px rgba(253, 187, 45, 0.4)"
+                        : "0 0 80px 20px rgba(255, 81, 47, 0.35)"
                 }}
                 transition={{ duration: 4, ease: "easeInOut" }}
             />
 
             {/* Core Sun Circle (Crisper inner circle) */}
             <motion.div
-                className="absolute left-1/2 -translate-x-1/2 rounded-full"
+                className="absolute left-1/2 -translate-x-1/2 rounded-full will-change-[transform,bottom,width,height]"
                 style={{ y: sunY }}
                 initial={{ bottom: "10%", width: "clamp(150px, 18vw, 300px)", height: "clamp(150px, 18vw, 300px)", backgroundColor: "#feb47b" }}
                 animate={{
@@ -61,7 +61,7 @@ export function SunsetBackground() {
 
             {/* Horizon Line / Ground */}
             <motion.div
-                className="absolute bottom-0 w-full h-[20vh] bg-black/20 blur-xl"
+                className="absolute bottom-0 w-full h-[20vh] bg-black/20 blur-lg will-change-opacity"
                 animate={{ opacity: isSunrise ? 0 : 0.4 }}
                 transition={{ duration: 2 }}
             />
