@@ -39,19 +39,6 @@ export default function RootLayout({
       <body className={cn("min-h-screen bg-background font-inter antialiased", inter.variable, manrope.variable)} suppressHydrationWarning>
         <SunsetProvider>
           <SunsetBackground />
-          <svg className="sr-only">
-            <filter id="clean-logo-filter" colorInterpolationFilters="sRGB">
-              {/* Sharpened chroma key: tighter threshold to remove all gray artifacts and bump pure white */}
-              <feColorMatrix type="matrix" values="
-                0 0 0 0 1
-                0 0 0 0 1
-                0 0 0 0 1
-                -1.5 -1.5 -1.5 3.5 -0.1" />
-              <feComponentTransfer>
-                <feFuncA type="discrete" tableValues="0 1" />
-              </feComponentTransfer>
-            </filter>
-          </svg>
           <div className="relative z-10">
             {children}
           </div>
