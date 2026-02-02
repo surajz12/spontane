@@ -17,9 +17,11 @@ export async function POST(req: Request) {
         let subject = "You're In! Welcome to the Spontane Beta 🚀";
         let htmlContent = "";
 
-        // Check if user said YES (starts with 'y' or is boolean true)
+        // Check if user said NO (starts with 'n' or is boolean false)
+        // Default to YES if the field is missing or valid (to support older scripts or implicit interest)
         const interestStr = String(betaInterest).toLowerCase().trim();
-        const isBetaUser = interestStr.startsWith('y') || interestStr === 'true' || betaInterest === true;
+        const isExplicitNo = interestStr.startsWith('n') || interestStr === 'false' || betaInterest === false;
+        const isBetaUser = !isExplicitNo;
 
         if (isBetaUser) {
             // BETA CONFIRMATION EMAIL
