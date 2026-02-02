@@ -118,34 +118,19 @@ export function AppPreview() {
                     </div>
 
                     {/* Right Column: Sticky Presentation Area */}
-                    <div className="hidden md:block w-full md:w-3/5 sticky top-0 h-screen flex items-center justify-center p-4 lg:p-8">
+                    <div className="hidden md:block w-full md:w-3/5 sticky top-0 h-screen flex items-center justify-center p-2 lg:p-4">
                         <motion.div
-                            className="relative w-full aspect-[16/10] max-w-5xl bg-white/10 rounded-3xl border border-white/20 shadow-2xl overflow-hidden backdrop-blur-xl flex flex-col group transform-gpu"
+                            className="relative w-full aspect-[16/10] max-w-5xl bg-white/5 rounded-2xl border border-white/10 shadow-2xl overflow-hidden backdrop-blur-md flex flex-col group transform-gpu"
                             initial={{ y: 20, opacity: 0 }}
                             animate={{ y: 0, opacity: 1 }}
                             transition={{ duration: 0.8 }}
-                            whileHover={{ scale: 1.01 }}
-                            onMouseMove={(e) => {
-                                const rect = e.currentTarget.getBoundingClientRect();
-                                const x = (e.clientX - rect.left) / rect.width - 0.5;
-                                const y = (e.clientY - rect.top) / rect.height - 0.5;
-                                e.currentTarget.style.setProperty("--rotate-x", `${y * -10}deg`);
-                                e.currentTarget.style.setProperty("--rotate-y", `${x * 10}deg`);
-                            }}
-                            onMouseLeave={(e) => {
-                                e.currentTarget.style.setProperty("--rotate-x", "0deg");
-                                e.currentTarget.style.setProperty("--rotate-y", "0deg");
-                            }}
-                            style={{
-                                transform: "perspective(1000px) rotateX(var(--rotate-x, 0deg)) rotateY(var(--rotate-y, 0deg))",
-                                transition: "transform 0.1s ease-out"
-                            } as any}
+                            whileHover={{ scale: 1.005 }}
                         >
                             {/* Window Chrome / Title Bar */}
-                            <div className="h-10 bg-white/5 border-b border-white/10 flex items-center px-4 space-x-2 backdrop-blur-sm z-20">
-                                <div className="w-3 h-3 rounded-full bg-red-500/80 shadow-sm" />
-                                <div className="w-3 h-3 rounded-full bg-yellow-500/80 shadow-sm" />
-                                <div className="w-3 h-3 rounded-full bg-green-500/80 shadow-sm" />
+                            <div className="h-8 bg-white/10 border-b border-white/10 flex items-center px-4 space-x-2 z-20">
+                                <div className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
+                                <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
+                                <div className="w-2.5 h-2.5 rounded-full bg-green-500/60" />
                             </div>
 
                             {/* Content Area */}
@@ -154,38 +139,35 @@ export function AppPreview() {
                                     <AnimatePresence mode="popLayout" custom={activeCard}>
                                         <motion.div
                                             key={activeCard}
-                                            initial={{ opacity: 0, y: 50, scale: 0.95 }}
-                                            animate={{ opacity: 1, y: 0, scale: 1 }}
-                                            exit={{ opacity: 0, y: -50, scale: 1.05 }}
-                                            transition={{ duration: 0.8, ease: "easeOut" }}
+                                            initial={{ opacity: 0, scale: 0.98 }}
+                                            animate={{ opacity: 1, scale: 1 }}
+                                            exit={{ opacity: 0, scale: 1.02 }}
+                                            transition={{ duration: 0.4, ease: "easeOut" }}
                                             className="absolute inset-0 w-full h-full flex items-center justify-center"
                                         >
-                                            {/* Blurred Background for Ambiance */}
+                                            {/* Simplified Background Hint */}
                                             <div
-                                                className="absolute inset-0 bg-cover bg-center opacity-40 blur-3xl scale-125"
+                                                className="absolute inset-0 bg-cover bg-center opacity-10 blur-xl scale-110"
                                                 style={{ backgroundImage: `url(${FEATURES[activeCard].image})` }}
                                             />
 
-                                            {/* Main Image */}
-                                            <div className="relative z-10 p-8 w-full h-full flex items-center justify-center">
+                                            {/* Main Image - Reduced padding for maximum size */}
+                                            <div className="relative z-10 w-full h-full p-2 flex items-center justify-center">
                                                 <img
                                                     src={FEATURES[activeCard].image}
                                                     alt={FEATURES[activeCard].title}
-                                                    className="max-w-full max-h-full rounded-lg shadow-2xl border border-white/20 object-contain"
+                                                    className="w-full h-full rounded-md shadow-2xl object-contain"
                                                 />
                                             </div>
                                         </motion.div>
                                     </AnimatePresence>
                                 ) : (
-                                    /* Static fallback for SSR/Initial Render to prevent hydration mismatch */
-                                    <div className="absolute inset-0 w-full h-full flex items-center justify-center">
-                                        <div className="relative z-10 p-8 w-full h-full flex items-center justify-center">
-                                            <img
-                                                src={FEATURES[0].image}
-                                                alt={FEATURES[0].title}
-                                                className="max-w-full max-h-full rounded-lg shadow-2xl border border-white/20 object-contain"
-                                            />
-                                        </div>
+                                    <div className="absolute inset-0 w-full h-full flex items-center justify-center p-2">
+                                        <img
+                                            src={FEATURES[0].image}
+                                            alt={FEATURES[0].title}
+                                            className="w-full h-full rounded-md shadow-2xl object-contain"
+                                        />
                                     </div>
                                 )}
                             </div>
