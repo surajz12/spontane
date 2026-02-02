@@ -42,12 +42,8 @@ export async function POST(req: Request) {
                     <p>See you on the road,</p>
                     
                     <p>
-                        <strong>Team Spontane</strong><br/>
-                        <a href="https://spontane.quest" style="color: #888; text-decoration: none; font-size: 14px;">spontane.quest</a>
-                    </p>
-                    
-                     <div style="margin-top: 30px; border-top: 1px solid #eee; padding-top: 10px; font-size: 12px; color: #aaa;">
-                        <p>Need help? Contact us at <a href="mailto:hello@spontane.quest" style="color: #aaa; text-decoration: underline;">hello@spontane.quest</a></p>
+                    <div style="margin-top: 30px; border-top: 1px solid #eee; padding-top: 10px; font-size: 12px; color: #aaa;">
+                        <p>Need help? Contact us at <a href="mailto:support@spontane.quest" style="color: #aaa; text-decoration: underline;">support@spontane.quest</a></p>
                     </div>
                 </div>
             `;
@@ -70,7 +66,7 @@ export async function POST(req: Request) {
                     </p>
                     
                      <div style="margin-top: 30px; border-top: 1px solid #eee; padding-top: 10px; font-size: 12px; color: #aaa;">
-                        <p>Need help? Contact us at <a href="mailto:hello@spontane.quest" style="color: #aaa; text-decoration: underline;">hello@spontane.quest</a></p>
+                        <p>Need help? Contact us at <a href="mailto:support@spontane.quest" style="color: #aaa; text-decoration: underline;">support@spontane.quest</a></p>
                     </div>
                 </div>
             `;
