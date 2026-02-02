@@ -52,45 +52,32 @@ export async function POST(req: Request) {
                     subject: 'Welcome to the Spontane Waitlist! 🌅',
                     replyTo: 'hello@spontane.quest',
                     html: `
-                        <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 600px; margin: 0 auto; padding: 40px 20px; color: #1a1a1a; background-color: #ffffff;">
-                            <div style="text-align: center; margin-bottom: 30px;">
-                                <h1 style="color: #fb8c00; font-size: 28px; font-weight: 700; margin: 0; letter-spacing: -0.5px;">SPONTANE</h1>
-                                <p style="color: #666; font-size: 14px; margin-top: 5px;">The future of travel</p>
-                            </div>
+                        <div style="font-family: sans-serif; font-size: 16px; color: #333; line-height: 1.6;">
+                            <p>Hi ${data.name || 'there'},</p>
                             
-                            <h2 style="font-size: 22px; color: #333; margin-bottom: 20px;">Welcome to the journey, ${data.name || 'Explorer'}!</h2>
+                            <p>Welcome to the journey! We're building <b>Spontane</b> for those who find magic in traveling, and we're thrilled to have you with us.</p>
                             
-                            <p style="font-size: 16px; line-height: 1.6; color: #444;">
-                                We're thrilled to have you on the waitlist. We're building Spontane for those who find magic in traveling, and we'd love for you to be part of the early group that brings it to life.
-                            </p>
-
-                            <div style="background: linear-gradient(135deg, #fff3e0 0%, #fdf2e9 100%); padding: 30px; border-radius: 16px; margin: 35px 0; border: 1px solid #ffe0b2; text-align: center;">
-                                <h3 style="margin-top: 0; font-size: 18px; color: #e65100;">📝 Quick Survey & Beta Testing</h3>
-                                <p style="font-size: 15px; color: #5d4037;">Help us build the perfect travel app. It only takes 2 minutes to share your thoughts.</p>
-                                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfVm3UqZkYDG9EEgGQhBUa5dgCa3LwERQDQ14A6rxzTI4yXZg/viewform" 
-                                   style="display: inline-block; background: #fb8c00; color: white; padding: 14px 32px; text-decoration: none; border-radius: 50px; font-weight: 600; margin-top: 15px; box-shadow: 0 4px 12px rgba(251, 140, 0, 0.2);">
-                                   Take Quick Survey
+                            <p>Before we launch, we want to make sure we're building exactly what you need.</p>
+                            
+                            <p><b>Could you spare 2 minutes for a quick feedback survey?</b></p>
+                            
+                            <p>
+                                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfVm3UqZkYDG9EEgGQhBUa5dgCa3LwERQDQ14A6rxzTI4yXZg/viewform" style="color: #fb8c00; text-decoration: underline;">
+                                    👉 Take the Quick Survey & Beta Sign-up
                                 </a>
-                            </div>
-
-                            <p style="font-size: 16px; line-height: 1.6; color: #444;">
-                                We'll be in touch as soon as a spot opens up. In the meantime, happy travels!
-                            </p>
-
-                            <p style="margin-top: 40px; font-size: 16px; font-weight: 600; color: #333;">
-                                Cheers,<br/>
-                                <span style="color: #fb8c00;">Team Spontane</span>
                             </p>
                             
-                            <hr style="border: 0; border-top: 1px dashed #eee; margin: 40px 0;" />
+                            <p>Your input will directly shape the app, and you'll get priority access to our upcoming Beta.</p>
                             
-                            <div style="text-align: center;">
-                                <p style="font-size: 12px; color: #999;">
-                                    You're receiving this because you signed up at <a href="https://spontane.quest" style="color: #fb8c00; text-decoration: none;">spontane.quest</a>
-                                </p>
-                                <p style="font-size: 12px; color: #999; margin-top: 10px;">
-                                    © ${new Date().getFullYear()} Spontane. All rights reserved.
-                                </p>
+                            <p>Happy travels,</p>
+                            
+                            <p>
+                                <strong>Team Spontane</strong><br/>
+                                <a href="https://spontane.quest" style="color: #888; text-decoration: none; font-size: 14px;">spontane.quest</a>
+                            </p>
+                            
+                            <div style="margin-top: 30px; border-top: 1px solid #eee; padding-top: 10px; font-size: 12px; color: #aaa;">
+                                <p>You signed up for the waitlist at spontane.quest.</p>
                             </div>
                         </div>
                     `
