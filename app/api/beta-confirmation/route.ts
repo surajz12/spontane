@@ -17,10 +17,11 @@ export async function POST(req: Request) {
         let subject = "You're In! Welcome to the Spontane Beta 🚀";
         let htmlContent = "";
 
-        // Check if user said NO (starts with 'n' or is boolean false)
-        // Default to YES if the field is missing or valid (to support older scripts or implicit interest)
+        // Check if user said NO (strictly "no" or "false")
+        // We use strict matching because the Google Form only has "Yes" and "No" options.
+        // This avoids bugs where String(null) -> "null" starts with "n" and triggered the No path.
         const interestStr = String(betaInterest).toLowerCase().trim();
-        const isExplicitNo = interestStr.startsWith('n') || interestStr === 'false' || betaInterest === false;
+        const isExplicitNo = interestStr === 'no' || interestStr === 'false' || betaInterest === false;
         const isBetaUser = !isExplicitNo;
 
         if (isBetaUser) {
