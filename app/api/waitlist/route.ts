@@ -69,6 +69,8 @@ export async function POST(req: Request) {
                             
                             <p>Your input will directly shape the app, and you'll get priority access to our upcoming Beta.</p>
                             
+                            <p>If you have any questions or just want to say hi, feel free to reply to this email or reach us at <a href="mailto:support@spontane.quest" style="color: #fb8c00; text-decoration: none;">support@spontane.quest</a>.</p>
+
                             <p>Happy travels,</p>
                             
                             <p>
